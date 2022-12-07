@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    display: flex;
+}
+
+#chessboard {
+    width: 50vw;
+    height: 98vh;
+    border: 2px solid #333;
+    position: absolute;
+}
+
+/*width/height should be about 1/8 the width/height of the chessboard for both white and black*/
+.black {
+    float: left;
+    width: 12.5%;
+    height: 12.5%;
+    
+    /* background-color: #b0673a; */
+
+    background: rgb(136,172,100);
+    background: linear-gradient(90deg, rgba(136,172,100,1) 0%, rgba(118,150,86,1) 100%);
+
+    /* This is to center the pieces properly on the board */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.white {
+    float: left;
+    width: 12.5%;
+    height: 12.5%;
+
+    /* background-color: #f9eda7; */
+
+    background: rgb(240,240,231);
+    background: linear-gradient(90deg, rgba(240,240,231,1) 0%, rgba(238,238,210,1) 100%);
+    
+    /* This is to center the pieces properly on the board */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+.black-piece{
+    width: 75px;
+    height: 75px;
+    cursor:pointer;
+}
+ 
+.white-piece{
+    width: 75px;
+    height: 75px;
+    cursor:pointer;
+}
+ 
+/* New pieces */
+.P{
+    background-image: url(./pieces_data/Chess_plt60.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+ 
+.B_p{
+    background-image: url(./pieces_data/Chess_pdt60.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+ 
+.R{
+    background-image: url(./pieces_data/Chess_rlt60.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+ 
+.B_r{
+    background-image: url(./pieces_data/Chess_rdt60.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+ 
+.B{
+    background-image: url(./pieces_data/Chess_blt60.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+ 
+.B_b{
+    background-image: url(./pieces_data/Chess_bdt60.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+ 
+.N{
+    background-image: url(./pieces_data/Chess_nlt60.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+ 
+.B_n{
+    background-image: url(./pieces_data/Chess_ndt60.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+ 
+.Q{
+    background-image: url(./pieces_data/Chess_qlt60.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+ 
+.B_q{
+    background-image: url(./pieces_data/Chess_qdt60.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+ 
+.K{
+    background-image: url(./pieces_data/Chess_klt60.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+ 
+.B_k{
+    background-image: url(./pieces_data/Chess_kdt60.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+/*Currently selected piece to move*/
+.current{
+    /* Original Green */
+    /* filter: drop-shadow(0 0 0.85rem rgb(70, 234, 108)); */
+
+    /* Alternate options */
+    /* filter: drop-shadow(0 0 0.75rem #bb340b); */
+    /* filter: drop-shadow(0 0 0.75rem #cc200a); */
+
+    /* Red - Easiest to see on white and green squares */
+    filter: drop-shadow(0 0 0.8rem #e90c0c);
+}
+.container {
+    width: 49.2vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.cringe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 99.5%;
+    height: 98.8%;
+    position: absolute;
+}
+.promation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 99.5%;
+    height: 98.8%;
+    position: absolute;
+}
+.menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    min-width: 100px;
+    min-height: 150px;
+    width: 15%;
+    height: 27.4%;
+
+    background: rgb(136,172,100);
+    background: linear-gradient(90deg, rgba(136,172,100,1) 0%, rgba(118,150,86,1) 100%);
+
+    position: absolute;
+    z-index: 80;
+    border-radius: 4.5%;
+    border: 1px solid white;
+}
+.bookshelf {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 2vh;
+}
+.bookshelf2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 2vh;
+}
+.baby {
+    padding-top: 0.6vh;
+    width: 100%;
+    height: 25%;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(240,240,231);
+}
+.baby2 {
+    padding-top: 0.6vh;
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(240,240,231);
+}
+.blackout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: black;
+    width: 50.02vw;
+    height: 99.5%;
+    z-index: 20;
+    opacity: 70%;
+    left: 24.7vw;
+}
+.hidden {
+    display: none;
+    z-index: -10;
+}
+
+.whiteOption {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 80%;
+    height: 80%;
+}
+.blackOption {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 80%;
+    height: 80%;
+}
+.queenOption {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+.d_image {
+    max-width: 110px;
+    width: 60%;
+    cursor: pointer;
+    transition: all 150ms;
+    filter: drop-shadow(.56rem 1rem 1.5rem rgba(0, 0, 0, 0.264));
+}
+.d_image:hover {
+    width: 64%;
+}
+.d_image2 {
+    max-width: 110px;
+    width: 60%;
+    cursor: pointer;
+    transition: all 150ms;
+    filter: drop-shadow(.56rem 1rem 1.5rem rgba(0, 0, 0, 0.264));
+}
+.d_image2:hover {
+    width: 64%;
+}
+.pSelect {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    min-width: 200px;
+    min-height: 175px;
+    width: 27%;
+    height: 27%;
+
+    background: rgb(136,172,100);
+    background: linear-gradient(90deg, rgba(136,172,100,1) 0%, rgba(118,150,86,1) 100%);
+
+    position: absolute;
+    z-index: 80;
+    border-radius: 14px;
+    border: 1px solid white;
+}

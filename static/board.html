@@ -1,0 +1,299 @@
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="board.css">
+    <title>CHESSBOARD</title>
+</head>
+
+<header>
+
+</header>
+
+<!-- ENGINE BUTTON, THIS WILL APPEAR BELOW THE NAVBAR AND ABOVE THE CHESSBOARD IF YOU UNCOMMENT THIS -->
+<!-- <div style="display: left;" id="button2">
+    <button id="run_button2" onclick="instring()">=</button>
+</div> -->
+
+
+
+<div class="cringe">
+    <div class="blackout">
+
+    </div>
+</div>
+
+<div class="cringe">
+    <div class="menu">
+        <h1 class="baby">Select a Color</h1>
+        <div class="bookshelf">
+            <div class="whiteOption">
+                <img src="./pieces_data/Chess_klt60.png" alt="white king" class="d_image" onclick="dont_flip()"/>
+            </div>
+            <div class="blackOption">
+                <img src="./pieces_data/Chess_kdt60.png" alt="black king" class="d_image" onclick="flip_board()"/>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="chessarea" id="chessarea"></div>
+</div>
+
+<div class="hidden" id="hid">
+    <div class="hidden" id="UI">
+        <h1 class="baby2">Promote Your Pawn</h1>
+        <div class="bookshelf2">
+            <div class="whiteOption">
+                <img src="./pieces_data/Chess_qlt60.png" alt="white queen" class="d_image2" onclick="wQueen()"/>
+            </div>
+            <div class="whiteOption">
+                <img src="./pieces_data/Chess_nlt60.png" alt="white knight" class="d_image2" onclick="wKnight()"/>
+            </div>
+            <div class="whiteOption">
+                <img src="./pieces_data/Chess_blt60.png" alt="white bishop" class="d_image2" onclick="wBishop()"/>
+            </div>
+            <div class="whiteOption">
+                <img src="./pieces_data/Chess_rlt60.png" alt="white rook" class="d_image2" onclick="wRook()"/>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="hidden" id="hid2">
+    <div class="hidden" id="UI2">
+        <h1 class="baby2">Promote Your Pawn</h1>
+        <div class="bookshelf2">
+            <div class="blackOption">
+                <img src="./pieces_data/Chess_qdt60.png" alt="black queen" class="d_image2" onclick="bQueen()"/>
+            </div>
+            <div class="blackOption">
+                <img src="./pieces_data/Chess_ndt60.png" alt="black knight" class="d_image2" onclick="bKnight()"/>
+            </div>
+            <div class="blackOption">
+                <img src="./pieces_data/Chess_bdt60.png" alt="black bishop" class="d_image2" onclick="bBishop()"/>
+            </div>
+            <div class="blackOption">
+                <img src="./pieces_data/Chess_rdt60.png" alt="black rook" class="d_image2" onclick="bRook()"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="board.js"></script>
+
+<script>
+    let newPiece;
+
+    function wQueen() {
+        newPiece.classList.remove("p");
+        newPiece.classList.remove('P');
+        newPiece.classList.remove('W_p');
+        newPiece.classList.remove('First');
+        newPiece.classList.add('Q')
+
+        WPPdestroyUI();
+        Please();
+    }
+
+    function bQueen() {
+        newPiece.classList.remove("p");
+        newPiece.classList.remove('P');
+        newPiece.classList.remove('B_p');
+        newPiece.classList.remove('First');
+        newPiece.classList.add('q')
+        newPiece.classList.add('B_q')
+
+        BPPdestroyUI();
+        Please();
+    }
+
+    function wKnight() {
+        newPiece.classList.remove("p");
+        newPiece.classList.remove('P');
+        newPiece.classList.remove('W_p');
+        newPiece.classList.remove('First');
+        newPiece.classList.add('N');
+        
+        WPPdestroyUI();
+        Please();
+    }
+
+    function bKnight() {
+        newPiece.classList.remove("p");
+        newPiece.classList.remove('P');
+        newPiece.classList.remove('B_p');
+        newPiece.classList.remove('First');
+        newPiece.classList.add('n');
+        newPiece.classList.add('B_n');
+
+        BPPdestroyUI();
+        Please();
+    }
+
+    function wBishop() {
+        newPiece.classList.remove("p");
+        newPiece.classList.remove('P');
+        newPiece.classList.remove('W_p');
+        newPiece.classList.remove('First');
+        newPiece.classList.add('B');
+
+        WPPdestroyUI();
+        Please();
+    }
+
+    function bBishop() {
+        newPiece.classList.remove("p");
+        newPiece.classList.remove('P');
+        newPiece.classList.remove('B_p');
+        newPiece.classList.remove('First');
+        newPiece.classList.add('b');
+        newPiece.classList.add('B_b');
+
+        BPPdestroyUI();
+        Please();
+    }
+    
+    function wRook() {
+        newPiece.classList.remove("p");
+        newPiece.classList.remove('P');
+        newPiece.classList.remove('W_p');
+        newPiece.classList.add('R');
+        newPiece.classList.add('W_r');
+
+        WPPdestroyUI();
+        Please();
+    }
+    
+    function bRook() {
+        newPiece.classList.remove("p");
+        newPiece.classList.remove('P');
+        newPiece.classList.remove('B_p');
+        newPiece.classList.add('r');
+        newPiece.classList.add('B_r');
+
+        BPPdestroyUI();
+        Please();
+    }
+
+    /* Generates the UI needed for white pawn promotion */
+    function WPPdestroyUI() {
+        /* Makes UI and blacked out background appear */
+        let hid = document.getElementById('hid');
+        let UI = document.getElementById('UI');
+        let total = document.querySelector('.cringe');
+
+        hid.classList.add('hidden');
+        hid.classList.remove('cringe');
+        total.classList.add('hidden');
+        UI.classList.add('hidden');
+        UI.classList.remove('pSelect');
+    }
+
+    /* Generates the UI needed for black pawn promotion */
+    function BPPdestroyUI() {
+        /* Makes UI and blacked out background appear */
+        let hid2 = document.getElementById('hid2');
+        let UI = document.getElementById('UI2');
+        let total = document.querySelector('.cringe');
+
+        hid2.classList.add('hidden');
+        hid2.classList.remove('cringe');
+        total.classList.add('hidden');
+        UI.classList.add('hidden');
+        UI.classList.remove('pSelect');
+    }
+
+    /* Generates the UI needed for white pawn promotion */
+    function WPPcreateUI() {
+        /* Makes UI and blacked out background appear */
+        let hid = document.getElementById('hid');
+        let UI = document.getElementById('UI');
+        let total = document.querySelector('.cringe');
+
+        hid.classList.remove('hidden');
+        hid.classList.add('cringe');
+        total.classList.remove('hidden');
+        UI.classList.remove('hidden');
+        UI.classList.add('pSelect');
+    }
+
+    /* Generates the UI needed for black pawn promotion */
+    function BPPcreateUI() {
+        /* Makes UI and blacked out background appear */
+        let hid2 = document.getElementById('hid2');
+        let UI = document.getElementById('UI2');
+        let total = document.querySelector('.cringe');
+
+        hid2.classList.remove('hidden');
+        hid2.classList.add('cringe');
+        total.classList.remove('hidden');
+        UI.classList.remove('hidden');
+        UI.classList.add('pSelect');
+    }
+
+    /* A function that takes the given pawn, gives a selection UI, then promotes given pawn */
+    function pawn_promotion(pawn) {
+        if (pawn.classList.contains('B_p')) {
+            BPPcreateUI();
+        }
+        else {
+            WPPcreateUI();
+        }
+        newPiece = pawn;
+
+        return "success";
+    }
+
+    //Testing for fen strings
+    function run_ws() {
+        let instance = new Module["chessGame"];
+        console.log('Fen default result: ' + instance["playTurn"]("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"));
+        console.log('fen result: ' + fen());
+        console.log('Our fen result: ' + instance["playTurn"](fen()));
+    };
+
+    //Calls the engine to do a move
+    function instring() {
+        let instance = new Module["chessGame"];
+        fenin(instance["playTurn"](fen()));
+    }
+
+    /* Since white is the default color, we don't need to flip the board, just get rid of the
+       menu that pops up. */
+    function dont_flip() {
+        /* Finding the Menu and blacked out background and hiding them once function is called */
+        let total = document.querySelector('.cringe');
+        let menu = document.querySelector('.menu');
+
+        total.classList.add('hidden');
+        menu.classList.add('hidden');
+    }
+
+    //Flips the board, called by a button
+    function flip_board() {
+        /* Finding the Menu and blacked out background and hiding them once function is called */
+        let total = document.querySelector('.cringe');
+        let menu = document.querySelector('.menu');
+
+        total.classList.add('hidden');
+        menu.classList.add('hidden');
+
+        /* Flip the board baby*/
+        flip_b();
+        instring();
+    }
+
+    //Returns the current fen string of the board
+    function get_fen(){
+        return fen();
+    }
+
+</script>
+<script src="chess.js"></script>
+<script type="text/javascript" src="fen.js"></script>
+
+</html>
