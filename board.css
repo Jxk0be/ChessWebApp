@@ -4,6 +4,27 @@
     display: flex;
 }
 
+.ghLink {
+    text-decoration: none;
+    margin-top: 100px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+}
+.name {
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    z-index: 10;
+}
+
+.pitiful {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+}
 #chessboard {
     width: 50vw;
     height: 98vh;
@@ -20,7 +41,7 @@
     /* background-color: #b0673a; */
 
     background: rgb(136,172,100);
-    background: linear-gradient(90deg, rgba(136,172,100,1) 0%, rgba(118,150,86,1) 100%);
+    background: linear-gradient(90deg, #88ac64 0%, rgba(118,150,86,1) 100%);
 
     /* This is to center the pieces properly on the board */
     display: flex;

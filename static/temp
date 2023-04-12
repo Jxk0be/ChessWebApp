@@ -1,9 +1,0 @@
-//If(promotion === queen){
-                //make_queen(piece_index);
-            //}else if(promotion === bishop){
-                //make_bishop(piece_index);
-            //}else if(promotion === rook){
-                //make_rook(piece_index);
-            //}else{
-                //make_knight(piece_index);
-            //}
